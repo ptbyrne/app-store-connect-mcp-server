@@ -1,0 +1,16 @@
+# CODEOWNERS - Require review from code owners for changes
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Default owner for everything in the repo
+* @ptbyrne
+
+# Security-sensitive files require explicit review
+SECURITY.md @ptbyrne
+.github/workflows/*.yml @ptbyrne
+.github/CODEOWNERS @ptbyrne
+package.json @ptbyrne
+package-lock.json @ptbyrne
+
+# Core security and authentication
+src/services/auth.ts @ptbyrne
+src/services/appstore-client.ts @ptbyrne
