@@ -2,6 +2,10 @@
 
 A Model Context Protocol (MCP) server for interacting with the App Store Connect API. This server provides tools for managing apps, beta testers, bundle IDs, devices, app metadata, and capabilities in App Store Connect.
 
+> **Note:** This is a fork of [Joshua Riley's app-store-connect-mcp-server](https://github.com/JoshuaRileyDev/app-store-connect-mcp-server). I've been actively maintaining and extending this fork with additional features including App Store Version management, localization tools, and enhanced beta feedback capabilities.
+
+> **API Note:** This MCP server wraps Apple's [App Store Connect API](https://developer.apple.com/documentation/appstoreconnectapi), which Apple actively updates (currently at v4.2 as of December 2025). This server implements a subset of available endpoints and may not include the latest API features. Contributions are welcome!
+
 [![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/install-mcp?name=app-store-connect&config=JTdCJTIyY29tbWFuZCUyMiUzQSUyMm5weCUyMC15JTIwYXBwc3RvcmUtY29ubmVjdC1tY3Atc2VydmVyJTIyJTdE)
 
 ## Overview
@@ -32,6 +36,30 @@ This server transforms complex App Store Connect operations into simple conversa
   <img alt="Smithery Installations" src="https://smithery.ai/badge/appstore-connect-mcp-server" />
 </a>
 [![MseeP.ai Security Assessment Badge](https://mseep.net/pr/joshuarileydev-app-store-connect-mcp-server-badge.png)](https://mseep.ai/app/joshuarileydev-app-store-connect-mcp-server)
+
+## API Coverage
+
+This MCP server implements many commonly-used App Store Connect API endpoints. However, Apple's API is extensive and continuously evolving. Below is a summary of what's implemented and what's on the roadmap.
+
+**Implemented:**
+- App management (list, get info)
+- Beta testing (groups, testers, feedback)
+- App Store versions & localizations
+- Bundle ID management & capabilities
+- Device & user management
+- Analytics & sales/finance reports
+- Xcode scheme listing
+
+**Not Yet Implemented** (available in App Store Connect API v3.6+/v4.x):
+- Webhooks API - Real-time push notifications for build status, TestFlight feedback, and app version changes
+- Build Upload API - Programmatic build uploads without Xcode/Transporter
+- Win-Back Offers - Re-engage churned subscribers with discounts
+- Expanded Offer Codes - Now supports all in-app purchase types with customer eligibility targeting
+- Alternative App Marketplaces API - EU/Japan marketplace distribution support
+- Apple-Hosted Background Assets - Up to 200GB storage for independent asset updates
+- Accessibility Nutrition Labels - Device-specific accessibility declarations
+
+See [Apple's API Release Notes](https://developer.apple.com/documentation/appstoreconnectapi/app-store-connect-api-release-notes) for the latest API changes. PRs welcome for new endpoints!
 
 ## Features
 
@@ -596,6 +624,10 @@ npm test
 npm run type-check
 ```
 
+## Acknowledgments
+
+This project is a fork of [app-store-connect-mcp-server](https://github.com/JoshuaRileyDev/app-store-connect-mcp-server) originally created by [Joshua Riley](https://github.com/JoshuaRileyDev). Thanks to Joshua for the foundational work that made this project possible.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
@@ -603,4 +635,5 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## Related Links
 - [Model Context Protocol Documentation](https://modelcontextprotocol.io)
 - [App Store Connect API Documentation](https://developer.apple.com/documentation/appstoreconnectapi)
+- [App Store Connect API Release Notes](https://developer.apple.com/documentation/appstoreconnectapi/app-store-connect-api-release-notes)
 - [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)
